@@ -32,11 +32,12 @@ public class Particulo {
 			
 			 switch(opcion) {
 			 case 0: 
-					System.out.println("Saliendo");
+					System.out.println("Hasta luego!");
+					System.exit(0);
 			     break;
 			 case 1: 
-					System.out.println("Nuevo");
-					System.out.println("Indique nuevo nombre: ");	
+				 	//Nuevo
+				 	System.out.println("Indique nuevo nombre: ");	
 					nombre=scanner.nextLine();
 					System.out.println("Indique nuevo categoria: ");	
 					categoria=scanner.nextLong();
@@ -45,17 +46,27 @@ public class Particulo {
 					nuevo(nombre,categoria,precio);
 			     break;
 			 case 2: 
-					System.out.println("Editar: ");
-					System.out.println("Indique id a editar: ");
+				 	//Editar
+				 	System.out.println("Indique id a editar: ");
+					id=scanner.nextInt();
+					scanner.nextLine();
+					System.out.println("Indique nuevo nombre: ");	
+					nombre=scanner.nextLine();
+					System.out.println("Indique nuevo categoria: ");	
+					categoria=scanner.nextLong();
+					System.out.println("Indique nuevo precio: ");	
+					precio=scanner.nextBigDecimal();
+					
+					editar(nombre, categoria, precio, id);
 			     break;
 			 case 3: 
-					System.out.println("Eliminar");
+				 	//Eliminar
 					System.out.println("Indique id a eliminar: ");
 					id=scanner.nextInt();
 					eliminar(id);
 			     break;	        
 			 case 4: 
-					System.out.println("Visualizar");
+				 	//Visualizar
 					visualizar();
 			     break;	
 			 }
@@ -78,58 +89,66 @@ public class Particulo {
 			connection.close();		
 		}catch(Exception e){
 			System.out.println(e.getMessage());
-			}
-	}
-	
-	public static void visualizar() throws SQLException{
-		connection=conexion();
-
-		Statement statement = connection.createStatement();
-		ResultSet resultSet = statement.executeQuery("select * from articulo");
-
-		while(resultSet.next()){	
-			System.out.printf("id=%4s nombre=%s categoria=%s precio=%s \n",
-					resultSet.getObject("id"),
-					resultSet.getObject("nombre"),
-					resultSet.getObject("categoria"),
-					resultSet.getObject("precio"));
 		}
-		resultSet.close();
-		statement.close();
-		connection.close();
 	}
 	
-	public static void editar(int id) throws SQLException{
-		connection=conexion();
-		
-		PreparedStatement preparedStatement = connection.prepareStatement(
-			"select * from articulo where id like ? "
-		);
-		preparedStatement.setObject(1, id);
-		ResultSet resultSet = preparedStatement.executeQuery();
-		resultSet.next();
-		
-		System.out.printf("id=%4s nombre=%s categoria=%s precio=%s \n",
-			resultSet.getObject("id"),
-			resultSet.getObject("nombre"),
-			resultSet.getObject("categoria"),
-			resultSet.getObject("precio"));
-		
-		resultSet.close();
-		preparedStatement.close();
-		connection.close();
+	public static void visualizar(){
+		try{
+			connection=conexion();
+	
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("select * from articulo");
+	
+			while(resultSet.next()){	
+				System.out.printf("id=%4s nombre=%s categoria=%s precio=%s \n",
+						resultSet.getObject("id"),
+						resultSet.getObject("nombre"),
+						resultSet.getObject("categoria"),
+						resultSet.getObject("precio"));
+			}
+			resultSet.close();
+			statement.close();
+			connection.close();
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public static void editar(String nombre,long categoria, BigDecimal precio, int id){
+		try{
+			connection=conexion();
+	
+			PreparedStatement preparedStatement = connection.prepareStatement(
+				"UPDATE articulo SET nombre=?, categoria=?, precio=? WHERE id=?"
+			);
+			preparedStatement.setString(1, nombre);
+			preparedStatement.setLong(2, categoria);
+			preparedStatement.setBigDecimal(3, precio);
+			preparedStatement.setInt(4, id);
+			preparedStatement.executeUpdate();
+	
+			preparedStatement.close();
+			connection.close();	
+			
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	public static void eliminar(int id) throws SQLException{
-		connection=conexion();
-		
-		PreparedStatement preparedStatement = connection.prepareStatement(
-			"DELETE FROM articulo where id=? "
-		);
-		preparedStatement.setInt(1, id);
-		preparedStatement.execute();
-		preparedStatement.close();
-		connection.close();
+		try{
+			connection=conexion();
+			
+			PreparedStatement preparedStatement = connection.prepareStatement(
+				"DELETE FROM articulo where id=? "
+			);
+			preparedStatement.setInt(1, id);
+			preparedStatement.execute();
+			preparedStatement.close();
+			connection.close();
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
 	}
 
 	
