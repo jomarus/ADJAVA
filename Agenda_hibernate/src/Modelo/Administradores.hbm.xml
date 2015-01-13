@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 12-ene-2015 16:30:50 by Hibernate Tools 3.6.0 -->
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31-oct-2013 17:12:44 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="Modelo.Administradores" table="administradores" catalog="daw_pruebas">
         <id name="usuario" type="string">

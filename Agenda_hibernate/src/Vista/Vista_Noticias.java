@@ -1,26 +1,28 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Vista;
-
 import Controlador.Operaciones;
 import javax.swing.DefaultListModel;
-
-public class Vista_Noticias extends javax.swing.JFrame {
-
-    DefaultListModel dlm;
-    Operaciones oper;
-    
-    public Vista_Noticias() {
+/**
+ *
+ * @author David
+ */
+public class Vista_Noticias extends javax.swing.JDialog {
+DefaultListModel dlm;
+Operaciones oper;
+    /**
+     * Creates new form Vista_Noticias
+     */
+    public Vista_Noticias(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
-        oper= new Operaciones();
+        oper = new Operaciones();
         dlm=new DefaultListModel();
         
-        dlm= oper.mostrarNoticias();
-        listaNoticias.setModel(dlm);
+        dlm=oper.mostrarNoticias();
+        lista_noticias.setModel(dlm);
     }
 
     /**
@@ -32,34 +34,33 @@ public class Vista_Noticias extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        alta_Usuarios1 = new Vista.Alta_Usuarios();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listaNoticias = new javax.swing.JList();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lista_noticias = new javax.swing.JList();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        listaNoticias.setModel(new javax.swing.AbstractListModel() {
+        lista_noticias.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(listaNoticias);
+        jScrollPane2.setViewportView(lista_noticias);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -92,17 +93,22 @@ public class Vista_Noticias extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Vista_Noticias().setVisible(true);
+                Vista_Noticias dialog = new Vista_Noticias(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Vista.Alta_Usuarios alta_Usuarios1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList listaNoticias;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JList lista_noticias;
     // End of variables declaration//GEN-END:variables
 }

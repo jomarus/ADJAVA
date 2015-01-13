@@ -1,5 +1,5 @@
 package Modelo;
-// Generated 12-ene-2015 16:30:49 by Hibernate Tools 3.6.0
+// Generated 31-oct-2013 17:12:44 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -62,10 +62,11 @@ public class Noticias  implements java.io.Serializable {
         this.fecha = fecha;
     }
 
-    @Override
+       @Override
     public String toString() {
         return "titular:" + titular + " texto:" + texto + " fecha:" + fecha ;
     }
+
 
 }
 
