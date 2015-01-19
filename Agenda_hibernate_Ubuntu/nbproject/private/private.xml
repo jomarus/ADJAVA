@@ -5,7 +5,9 @@
         <group>
             <file>file:/home/mati/ADJAVA/Agenda_hibernate_Ubuntu/src/Controlador/Operaciones.java</file>
             <file>file:/home/mati/ADJAVA/Agenda_hibernate_Ubuntu/src/Vista/Vista_Usuarios.java</file>
+            <file>file:/home/mati/ADJAVA/Agenda_hibernate_Ubuntu/src/Modelo/Usuarios.java</file>
             <file>file:/home/mati/ADJAVA/Agenda_hibernate_Ubuntu/src/agenda_hibernate/Agenda_hibernate.java</file>
+            <file>file:/home/mati/ADJAVA/Agenda_hibernate_Ubuntu/src/Vista/Alta_Usuarios.java</file>
             <file>file:/home/mati/ADJAVA/Agenda_hibernate_Ubuntu/src/Vista/Vista_Noticias.java</file>
             <file>file:/home/mati/ADJAVA/Agenda_hibernate_Ubuntu/src/hibernate.cfg.xml</file>
         </group>
