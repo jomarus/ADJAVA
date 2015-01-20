@@ -18,8 +18,14 @@ public class HibernateCategoria {
 		
 		showCategorias();
 		
-		System.out.println("Añado categorias");
-		persistNuevasCategorias();
+		//System.out.println("Añado categorias");
+		//persistNuevasCategorias();
+		
+		//System.out.println("Elimino categoria");
+		//deleteCategorias();
+		
+		//System.out.println("Actualizo categoria");
+		//updateCategorias();
 		
 		showCategorias();
 		
@@ -47,6 +53,31 @@ public class HibernateCategoria {
 		categoria.setNombre("Hibernate "+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 		
 		entityManager.persist(categoria);
+		entityManager.getTransaction().commit();
+		
+		entityManager.close();
+	}
+	
+	public static void deleteCategorias(){
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+		entityManager.getTransaction().begin();
+
+			Categoria categoria = entityManager.find(Categoria.class,(long)19);
+			entityManager.remove(categoria);
+			entityManager.getTransaction().commit();
+		entityManager.close();
+	}
+	
+	public static void updateCategorias(){
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		
+		entityManager.getTransaction().begin();
+		
+		Categoria categoria = entityManager.find(Categoria.class,(long)17);
+		categoria.setNombre("Fecha hibernate");
+		entityManager.merge(categoria);
+		
 		entityManager.getTransaction().commit();
 		
 		entityManager.close();
