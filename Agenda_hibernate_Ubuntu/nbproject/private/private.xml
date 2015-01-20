@@ -2,6 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/mati/ADJAVA/Agenda_hibernate_Ubuntu/src/Controlador/Operaciones.java</file>
+            <file>file:/home/mati/ADJAVA/Agenda_hibernate_Ubuntu/src/Vista/Vista_Usuarios.java</file>
+            <file>file:/home/mati/ADJAVA/Agenda_hibernate_Ubuntu/src/agenda_hibernate/Agenda_hibernate.java</file>
+            <file>file:/home/mati/ADJAVA/Agenda_hibernate_Ubuntu/src/Vista/Alta_Usuarios.java</file>
+        </group>
     </open-files>
 </project-private>

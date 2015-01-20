@@ -68,7 +68,7 @@ public DefaultListModel mostrarUsuarios()
         }
         return dlm;
     }
-
+/*
 //SELECT
 public DefaultListModel mostrarNoticias()
     {
@@ -107,5 +107,5 @@ public DefaultListModel obtenerNoticiasUser(String user){
             dlm.addElement(noti);
         }
         return dlm;
-     }
+     }*/
 }
